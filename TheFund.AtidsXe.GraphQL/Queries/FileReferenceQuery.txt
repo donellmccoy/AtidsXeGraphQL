@@ -1,0 +1,128 @@
+﻿query FileReferenceQuery($fileReferenceId: Int) {
+  fileReferenceById(fileReferenceId: $fileReferenceId) {
+    fileReferenceId
+    fileReferenceName
+    fileStatusId
+    workerId
+    createDate
+    updateDate
+    defaultGeographicLocaleId
+    isTemporaryFile
+    worksheet {
+      worksheetId
+      fileReferenceId
+    }
+    fileStatus {
+      fileStatusId
+      description
+    }
+    titleSearchOrigination {
+      titleEventId
+      titleSearchOriginationId
+      orderDate
+      orderReference
+      fileReferenceId
+    }
+    branchLocation {
+      branchLocationId
+      isInternal
+      accountNumber
+      description
+    }
+    geographicLocale {
+      geographicLocaleId
+      geographicLocaleTypeId
+      localeAbbreviation
+      localeName
+      parentGeographicLocaleId
+    }
+    chainOfTitles {
+      chainOfTitleId
+      fileReferenceId
+      chainOfTitleSearches {
+        chainOfTitleId
+        searchId
+        search {
+          searchId
+          searchReference
+          parentSearchId
+          geographicLocaleId
+          grantorCertRangeId
+          giCertRangeId
+          instrumentFilters
+          lrsSearch
+          inclMortgageeShortForm
+          hidden
+          searchTypeId
+          searchFromDate
+          searchThruDate
+          searchStatusId
+        }
+      }
+      chainOfTitleNotes {
+        chainOfTitleId
+        chainOfTitleNotesId
+        userId
+        timeStamp
+        message
+      }
+      chainOfTitleItems {
+        chainOfTitleId
+        chainOfTitleItemId
+        titleEvent {
+          titleEventId
+          currentExamStatusTypeId
+          originalExamStatusTypeId
+          titleEventStatusAssignorId
+          titleEventTypeId
+          amount
+          additionalInformation
+          titleEventDate
+          createDate
+          tag
+        }
+        chainOfTitleCategory {
+          chainOfTitleCategoryId
+          description
+        }
+      }
+    }
+    searches {
+      searchId
+      searchReference
+      fileReferenceId
+      parentSearchId
+      geographicLocaleId
+      grantorCertRangeId
+      giCertRangeId
+      instrumentFilters
+      lrsSearch
+      inclMortgageeShortForm
+      hidden
+      searchTypeId
+      searchFromDate
+      searchThruDate
+      searchStatusId
+      titleEventSearches {
+        searchId
+        titleEvent {
+          titleEventId
+          originalExamStatusTypeId
+          titleEventTypeId
+          amount
+          additionalInformation
+          titleEventDate
+          createDate
+          tag
+        }
+      }
+    }
+    fileReferenceNotes {
+      fileReferenceId
+      fileReferenceNotesId
+      message
+      userId
+      timeStamp
+    }
+  }
+}

@@ -1,0 +1,965 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf"
+    xmlns:converters1="clr-namespace:TheFund.AtidsXe.Modules.Common.Converters;assembly=TheFund.AtidsXe.Modules.Common"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    xmlns:viewModels="clr-namespace:TheFund.AtidsXe.Modules.Navigation.ViewModels.Names">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/TheFund.AtidsXe.Modules.Navigation;component/Styles/ProgressBarStyles.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/TheFund.AtidsXe.Modules.Navigation;component/Styles/ButtonStyles.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/TheFund.AtidsXe.Modules.Navigation;component/Styles/CardStyles.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ProgressBar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Card.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.CheckBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Popupbox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ComboBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ToggleButton.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    <converters:BooleanToVisibilityConverter x:Key="BoolToVisConverter" />
+    <converters1:BooleanToVisibileHiddenConverter x:Key="BooleanToVisibileHiddenConverter" />
+    <converters:BooleanToVisibilityConverter
+        x:Key="InverseBoolToVisConverter"
+        FalseValue="Visible"
+        TrueValue="Collapsed" />
+    <!--  Name Search Group Template  -->
+    <HierarchicalDataTemplate x:Key="NameSearchGroupTemplate" DataType="{x:Type viewModels:NameSearchGroupTreeViewModel}">
+        <materialDesign:Card
+            x:Name="groupNameSearchCard"
+            Width="250"
+            Height="38"
+            Margin="0"
+            Padding="0,0,4,0"
+            Style="{StaticResource ResourceKey=cardHoverShadowStyle}"
+            HorizontalAlignment="Left"
+            Cursor="Hand">
+            <Grid
+                Margin="0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="0.16*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="18" />
+                    <ColumnDefinition Width="34" />
+                </Grid.ColumnDefinitions>
+                <Border
+                    Grid.Column="0"
+                    Margin="-1,-1,0,-1"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Stretch"
+                    Background="Blue"
+                    BorderBrush="Blue"
+                    BorderThickness="3">
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Setter Property="Visibility" Value="Hidden" />
+                            <Setter Property="Opacity" Value="0.1" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=groupNameSearchCard, Path=IsMouseOver}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                    <Setter Property="Opacity" Value="0.2" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type telerik:RadTreeViewItem}}, Path=IsSelected}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                    <Setter Property="Opacity" Value="0.4" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                </Border>
+                <materialDesign:PackIcon
+                    x:Name="mainIcon"
+                    Grid.Column="1"
+                    Width="20"
+                    Height="20"
+                    Margin="8,0,0,0"
+                    Padding="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="Transparent"
+                    Cursor="Arrow"
+                    FontWeight="SemiBold"
+                    Foreground="Black"
+                    Kind="UsersGroupOutline"
+                    Opacity="0.9" />
+                <StackPanel
+                    Grid.Column="2"
+                    VerticalAlignment="Center"
+                    Cursor="Hand"
+                    Orientation="Vertical">
+                    <TextBlock
+                        Margin="5,0,0,0"
+                        VerticalAlignment="Center"
+                        Opacity="0.9"
+                        Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                        Text="Name Searches"
+                        TextTrimming="CharacterEllipsis" />
+                </StackPanel>
+                <materialDesign:PopupBox
+                    Grid.Column="4"
+                    Margin="8,0,0,0"
+                    Padding="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    materialDesign:RippleAssist.ClipToBounds="False"
+                    materialDesign:RippleAssist.Feedback="LightBlue"
+                    materialDesign:RippleAssist.IsCentered="True"
+                    materialDesign:RippleAssist.IsDisabled="False"
+                    materialDesign:RippleAssist.RippleOnTop="True"
+                    materialDesign:RippleAssist.RippleSizeMultiplier="0.7"
+                    PlacementMode="RightAndAlignTopEdges"
+                    PopupMode="Click"
+                    StaysOpen="False"
+                    UnfurlOrientation="Horizontal">
+                    <materialDesign:PopupBox.ToggleCheckedContent>
+                        <materialDesign:PackIcon
+                            Width="20"
+                            Height="20"
+                            Cursor="Hand"
+                            Foreground="Black"
+                            Kind="EllipsisVertical" />
+                    </materialDesign:PopupBox.ToggleCheckedContent>
+                    <materialDesign:PopupBox.ToggleContent>
+                        <materialDesign:PackIcon
+                            Width="20"
+                            Height="20"
+                            Cursor="Hand"
+                            Foreground="Black"
+                            Kind="EllipsisVertical" />
+                    </materialDesign:PopupBox.ToggleContent>
+                    <materialDesign:PopupBox.Style>
+                        <Style BasedOn="{StaticResource ResourceKey=MaterialDesignToolPopupBox}" TargetType="materialDesign:PopupBox">
+                            <Setter Property="Visibility" Value="Hidden" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=groupNameSearchCard, Path=IsMouseOver}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </materialDesign:PopupBox.Style>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.Resources>
+                            <Style TargetType="materialDesign:PackIcon">
+                                <Setter Property="Width" Value="18" />
+                                <Setter Property="Height" Value="18" />
+                                <Setter Property="Margin" Value="0" />
+                                <Setter Property="Padding" Value="0" />
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="Foreground" Value="Black" />
+                                <Setter Property="Cursor" Value="Arrow" />
+                                <Setter Property="Opacity" Value="0.7" />
+                            </Style>
+                        </Grid.Resources>
+                        <Button
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Command="{Binding Path=EditSearchCommand}"
+                            Cursor="Hand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Grid.Column="0" Kind="EditOutline" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                                    Text="Edit Search" />
+                            </Grid>
+                        </Button>
+                    </Grid>
+                </materialDesign:PopupBox>
+            </Grid>
+        </materialDesign:Card>
+    </HierarchicalDataTemplate>
+
+    <DataTemplate x:Key="1">
+        <materialDesign:Card
+            Width="250"
+            Height="40"
+            Margin="8,0,0,10"
+            Padding="5,4,5,5"
+            HorizontalAlignment="Left">
+            <Grid
+                Margin="0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.16*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="18" />
+                    <ColumnDefinition Width="34" />
+                </Grid.ColumnDefinitions>
+                <!--  Search Icon  -->
+                <materialDesign:PackIcon
+                    Grid.Column="0"
+                    Width="20"
+                    Height="20"
+                    Margin="2,0,0,0"
+                    Padding="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="Transparent"
+                    Cursor="Arrow"
+                    FontWeight="SemiBold"
+                    Foreground="Black"
+                    Kind="UserSearchOutline"
+                    Opacity="0.8" />
+                <!--  Legal Name Text  -->
+                <StackPanel
+                    Grid.Column="1"
+                    VerticalAlignment="Center"
+                    Cursor="Hand"
+                    Orientation="Vertical">
+                    <TextBlock
+                        Margin="5,2,0,0"
+                        VerticalAlignment="Center"
+                        Opacity="0.9"
+                        Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                        Text="Seller Searches"
+                        TextTrimming="CharacterEllipsis" />
+                </StackPanel>
+                <!--  More Options button  -->
+                <materialDesign:PopupBox
+                    Grid.Column="3"
+                    Margin="0,2,0,0"
+                    Padding="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    materialDesign:RippleAssist.ClipToBounds="False"
+                    materialDesign:RippleAssist.Feedback="LightBlue"
+                    materialDesign:RippleAssist.IsCentered="True"
+                    materialDesign:RippleAssist.IsDisabled="False"
+                    materialDesign:RippleAssist.RippleOnTop="True"
+                    materialDesign:RippleAssist.RippleSizeMultiplier="0.7"
+                    PlacementMode="BottomAndAlignLeftEdges"
+                    PopupMode="Click"
+                    StaysOpen="False"
+                    UnfurlOrientation="Horizontal"
+                    Visibility="Visible">
+                    <materialDesign:PopupBox.ToggleCheckedContent>
+                        <materialDesign:PackIcon
+                            Width="20"
+                            Height="20"
+                            Cursor="Hand"
+                            Foreground="Black"
+                            Kind="EllipsisHorizontal" />
+                    </materialDesign:PopupBox.ToggleCheckedContent>
+                    <materialDesign:PopupBox.ToggleContent>
+                        <materialDesign:PackIcon
+                            Width="20"
+                            Height="20"
+                            Cursor="Hand"
+                            Foreground="Black"
+                            Kind="EllipsisHorizontal" />
+                    </materialDesign:PopupBox.ToggleContent>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.Resources>
+                            <Style TargetType="materialDesign:PackIcon">
+                                <Setter Property="Width" Value="18" />
+                                <Setter Property="Height" Value="18" />
+                                <Setter Property="Margin" Value="0" />
+                                <Setter Property="Padding" Value="0" />
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="Foreground" Value="Black" />
+                                <Setter Property="Cursor" Value="Arrow" />
+                                <Setter Property="Opacity" Value="0.7" />
+                            </Style>
+                        </Grid.Resources>
+                        <!--  Edit search button  -->
+                        <Button
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Command="{Binding Path=EditSearchCommand}"
+                            Cursor="Hand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Grid.Column="0" Kind="EditOutline" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                                    Text="Edit Search" />
+                            </Grid>
+                        </Button>
+                        <!--  View search notes button  -->
+                        <Button
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Command="{Binding Path=ViewSearchNotesCommand}"
+                            Cursor="Hand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Grid.Column="0" Kind="NoteMultipleOutline" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                                    Text="View Search Notes" />
+                            </Grid>
+                        </Button>
+                        <!--  View search parameters button  -->
+                        <Button
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            Command="{Binding Path=ViewSearchParametersCommand}"
+                            Cursor="Hand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Grid.Column="0" Kind="EventSearch" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                                    Text="View Search Parameters" />
+                            </Grid>
+                        </Button>
+                        <!--  Share with user button  -->
+                        <Button
+                            Grid.Row="7"
+                            Grid.Column="1"
+                            Command="{Binding Path=ShareWithUserCommand}"
+                            Cursor="Hand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Grid.Column="0" Kind="ShareOutline" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                                    Text="Share with user" />
+                            </Grid>
+                        </Button>
+                        <!--  Show history button  -->
+                        <Button
+                            Grid.Row="8"
+                            Grid.Column="1"
+                            Command="{Binding Path=ShowPropertyOnMapCommand}"
+                            Cursor="Hand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Grid.Column="0" Kind="History" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                                    Text="Show history" />
+                            </Grid>
+                        </Button>
+                        <!--  Show property on map button  -->
+                        <Button
+                            Grid.Row="9"
+                            Grid.Column="1"
+                            Command="{Binding Path=ShowPropertyOnMapCommand}"
+                            Cursor="Hand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Grid.Column="0" Kind="MapMarkerOutline" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                                    Text="Show property on map" />
+                            </Grid>
+                        </Button>
+                        <!--  Add to profile button  -->
+                        <Button
+                            Grid.Row="10"
+                            Grid.Column="1"
+                            Command="{Binding Path=ShowPropertyOnMapCommand}"
+                            Cursor="Hand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Grid.Column="0" Kind="AccountCircleOutline" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                                    Text="Add to user profile" />
+                            </Grid>
+                        </Button>
+                    </Grid>
+                </materialDesign:PopupBox>
+            </Grid>
+        </materialDesign:Card>
+    </DataTemplate>
+    <DataTemplate x:Key="2">
+        <materialDesign:Card
+            Width="250"
+            Height="40"
+            Margin="8,0,0,10"
+            Padding="5,4,5,5"
+            HorizontalAlignment="Left">
+            <Grid
+                Margin="0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.16*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="18" />
+                    <ColumnDefinition Width="34" />
+                </Grid.ColumnDefinitions>
+                <!--  Search Icon  -->
+                <materialDesign:PackIcon
+                    Grid.Column="0"
+                    Width="20"
+                    Height="20"
+                    Margin="2,0,0,0"
+                    Padding="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="Transparent"
+                    Cursor="Arrow"
+                    FontWeight="SemiBold"
+                    Foreground="Black"
+                    Kind="UserSearchOutline"
+                    Opacity="0.8" />
+                <!--  Legal Name Text  -->
+                <StackPanel
+                    Grid.Column="1"
+                    VerticalAlignment="Center"
+                    Cursor="Hand"
+                    Orientation="Vertical">
+                    <TextBlock
+                        Margin="5,2,0,0"
+                        VerticalAlignment="Center"
+                        Opacity="0.9"
+                        Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                        Text="Buyer Searches"
+                        TextTrimming="CharacterEllipsis" />
+                </StackPanel>
+                <!--  More Options button  -->
+                <materialDesign:PopupBox
+                    Grid.Column="3"
+                    Margin="0,2,0,0"
+                    Padding="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    materialDesign:RippleAssist.ClipToBounds="False"
+                    materialDesign:RippleAssist.Feedback="LightBlue"
+                    materialDesign:RippleAssist.IsCentered="True"
+                    materialDesign:RippleAssist.IsDisabled="False"
+                    materialDesign:RippleAssist.RippleOnTop="True"
+                    materialDesign:RippleAssist.RippleSizeMultiplier="0.7"
+                    PlacementMode="BottomAndAlignLeftEdges"
+                    PopupMode="Click"
+                    StaysOpen="False"
+                    UnfurlOrientation="Horizontal"
+                    Visibility="Visible">
+                    <materialDesign:PopupBox.ToggleCheckedContent>
+                        <materialDesign:PackIcon
+                            Width="20"
+                            Height="20"
+                            Cursor="Hand"
+                            Foreground="Black"
+                            Kind="EllipsisHorizontal" />
+                    </materialDesign:PopupBox.ToggleCheckedContent>
+                    <materialDesign:PopupBox.ToggleContent>
+                        <materialDesign:PackIcon
+                            Width="20"
+                            Height="20"
+                            Cursor="Hand"
+                            Foreground="Black"
+                            Kind="EllipsisHorizontal" />
+                    </materialDesign:PopupBox.ToggleContent>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.Resources>
+                            <Style TargetType="materialDesign:PackIcon">
+                                <Setter Property="Width" Value="18" />
+                                <Setter Property="Height" Value="18" />
+                                <Setter Property="Margin" Value="0" />
+                                <Setter Property="Padding" Value="0" />
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="Foreground" Value="Black" />
+                                <Setter Property="Cursor" Value="Arrow" />
+                                <Setter Property="Opacity" Value="0.7" />
+                            </Style>
+                        </Grid.Resources>
+                        <!--  Edit search button  -->
+                        <Button
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Command="{Binding Path=EditSearchCommand}"
+                            Cursor="Hand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Grid.Column="0" Kind="EditOutline" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                                    Text="Edit Search" />
+                            </Grid>
+                        </Button>
+                        <!--  View search notes button  -->
+                        <Button
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Command="{Binding Path=ViewSearchNotesCommand}"
+                            Cursor="Hand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Grid.Column="0" Kind="NoteMultipleOutline" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                                    Text="View Search Notes" />
+                            </Grid>
+                        </Button>
+                        <!--  View search parameters button  -->
+                        <Button
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            Command="{Binding Path=ViewSearchParametersCommand}"
+                            Cursor="Hand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Grid.Column="0" Kind="EventSearch" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                                    Text="View Search Parameters" />
+                            </Grid>
+                        </Button>
+                        <!--  Share with user button  -->
+                        <Button
+                            Grid.Row="7"
+                            Grid.Column="1"
+                            Command="{Binding Path=ShareWithUserCommand}"
+                            Cursor="Hand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Grid.Column="0" Kind="ShareOutline" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                                    Text="Share with user" />
+                            </Grid>
+                        </Button>
+                        <!--  Show history button  -->
+                        <Button
+                            Grid.Row="8"
+                            Grid.Column="1"
+                            Command="{Binding Path=ShowPropertyOnMapCommand}"
+                            Cursor="Hand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Grid.Column="0" Kind="History" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                                    Text="Show history" />
+                            </Grid>
+                        </Button>
+                        <!--  Show property on map button  -->
+                        <Button
+                            Grid.Row="9"
+                            Grid.Column="1"
+                            Command="{Binding Path=ShowPropertyOnMapCommand}"
+                            Cursor="Hand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Grid.Column="0" Kind="MapMarkerOutline" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                                    Text="Show property on map" />
+                            </Grid>
+                        </Button>
+                        <!--  Add to profile button  -->
+                        <Button
+                            Grid.Row="10"
+                            Grid.Column="1"
+                            Command="{Binding Path=ShowPropertyOnMapCommand}"
+                            Cursor="Hand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Grid.Column="0" Kind="AccountCircleOutline" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                                    Text="Add to user profile" />
+                            </Grid>
+                        </Button>
+                    </Grid>
+                </materialDesign:PopupBox>
+            </Grid>
+        </materialDesign:Card>
+    </DataTemplate>
+    <DataTemplate x:Key="3">
+        <materialDesign:Card
+            Width="250"
+            Height="40"
+            Margin="8,0,0,10"
+            Padding="5,4,5,5"
+            HorizontalAlignment="Left">
+            <Grid
+                Margin="0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.16*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="18" />
+                    <ColumnDefinition Width="34" />
+                </Grid.ColumnDefinitions>
+                <!--  Search Icon  -->
+                <materialDesign:PackIcon
+                    Grid.Column="0"
+                    Width="20"
+                    Height="20"
+                    Margin="2,0,0,0"
+                    Padding="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="Transparent"
+                    Cursor="Arrow"
+                    FontWeight="SemiBold"
+                    Foreground="Black"
+                    Kind="UserSearchOutline"
+                    Opacity="0.8" />
+                <!--  Legal Name Text  -->
+                <StackPanel
+                    Grid.Column="1"
+                    VerticalAlignment="Center"
+                    Cursor="Hand"
+                    Orientation="Vertical">
+                    <TextBlock
+                        Margin="5,2,0,0"
+                        VerticalAlignment="Center"
+                        Opacity="0.9"
+                        Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                        Text="Other Searches"
+                        TextTrimming="CharacterEllipsis" />
+                </StackPanel>
+                <!--  More Options button  -->
+                <materialDesign:PopupBox
+                    Grid.Column="3"
+                    Margin="0,2,0,0"
+                    Padding="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    materialDesign:RippleAssist.ClipToBounds="False"
+                    materialDesign:RippleAssist.Feedback="LightBlue"
+                    materialDesign:RippleAssist.IsCentered="True"
+                    materialDesign:RippleAssist.IsDisabled="False"
+                    materialDesign:RippleAssist.RippleOnTop="True"
+                    materialDesign:RippleAssist.RippleSizeMultiplier="0.7"
+                    PlacementMode="BottomAndAlignLeftEdges"
+                    PopupMode="Click"
+                    StaysOpen="False"
+                    UnfurlOrientation="Horizontal"
+                    Visibility="Visible">
+                    <materialDesign:PopupBox.ToggleCheckedContent>
+                        <materialDesign:PackIcon
+                            Width="20"
+                            Height="20"
+                            Cursor="Hand"
+                            Foreground="Black"
+                            Kind="EllipsisHorizontal" />
+                    </materialDesign:PopupBox.ToggleCheckedContent>
+                    <materialDesign:PopupBox.ToggleContent>
+                        <materialDesign:PackIcon
+                            Width="20"
+                            Height="20"
+                            Cursor="Hand"
+                            Foreground="Black"
+                            Kind="EllipsisHorizontal" />
+                    </materialDesign:PopupBox.ToggleContent>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.Resources>
+                            <Style TargetType="materialDesign:PackIcon">
+                                <Setter Property="Width" Value="18" />
+                                <Setter Property="Height" Value="18" />
+                                <Setter Property="Margin" Value="0" />
+                                <Setter Property="Padding" Value="0" />
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="Foreground" Value="Black" />
+                                <Setter Property="Cursor" Value="Arrow" />
+                                <Setter Property="Opacity" Value="0.7" />
+                            </Style>
+                        </Grid.Resources>
+                        <!--  Edit search button  -->
+                        <Button
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Command="{Binding Path=EditSearchCommand}"
+                            Cursor="Hand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Grid.Column="0" Kind="EditOutline" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                                    Text="Edit Search" />
+                            </Grid>
+                        </Button>
+                        <!--  View search notes button  -->
+                        <Button
+                            Grid.Row="3"
+                            Grid.Column="1"
+                            Command="{Binding Path=ViewSearchNotesCommand}"
+                            Cursor="Hand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Grid.Column="0" Kind="NoteMultipleOutline" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                                    Text="View Search Notes" />
+                            </Grid>
+                        </Button>
+                        <!--  View search parameters button  -->
+                        <Button
+                            Grid.Row="4"
+                            Grid.Column="1"
+                            Command="{Binding Path=ViewSearchParametersCommand}"
+                            Cursor="Hand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Grid.Column="0" Kind="EventSearch" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                                    Text="View Search Parameters" />
+                            </Grid>
+                        </Button>
+                        <!--  Share with user button  -->
+                        <Button
+                            Grid.Row="7"
+                            Grid.Column="1"
+                            Command="{Binding Path=ShareWithUserCommand}"
+                            Cursor="Hand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Grid.Column="0" Kind="ShareOutline" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                                    Text="Share with user" />
+                            </Grid>
+                        </Button>
+                        <!--  Show history button  -->
+                        <Button
+                            Grid.Row="8"
+                            Grid.Column="1"
+                            Command="{Binding Path=ShowPropertyOnMapCommand}"
+                            Cursor="Hand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Grid.Column="0" Kind="History" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                                    Text="Show history" />
+                            </Grid>
+                        </Button>
+                        <!--  Show property on map button  -->
+                        <Button
+                            Grid.Row="9"
+                            Grid.Column="1"
+                            Command="{Binding Path=ShowPropertyOnMapCommand}"
+                            Cursor="Hand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Grid.Column="0" Kind="MapMarkerOutline" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                                    Text="Show property on map" />
+                            </Grid>
+                        </Button>
+                        <!--  Add to profile button  -->
+                        <Button
+                            Grid.Row="10"
+                            Grid.Column="1"
+                            Command="{Binding Path=ShowPropertyOnMapCommand}"
+                            Cursor="Hand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Grid.Column="0" Kind="AccountCircleOutline" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                                    Text="Add to user profile" />
+                            </Grid>
+                        </Button>
+                    </Grid>
+                </materialDesign:PopupBox>
+            </Grid>
+        </materialDesign:Card>
+    </DataTemplate>
+</ResourceDictionary>

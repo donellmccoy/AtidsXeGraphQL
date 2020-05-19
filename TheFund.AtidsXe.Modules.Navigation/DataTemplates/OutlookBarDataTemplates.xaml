@@ -1,0 +1,237 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:outlookBar="clr-namespace:TheFund.AtidsXe.Modules.Navigation.ViewModels.OutlookBar"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    xmlns:templateSelectors="clr-namespace:TheFund.AtidsXe.Modules.Navigation.TemplateSelectors"
+    mc:Ignorable="d">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/TheFund.AtidsXe.Modules.Navigation;component/Styles/ProgressBarStyles.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/TheFund.AtidsXe.Modules.Navigation;component/Styles/ButtonStyles.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/TheFund.AtidsXe.Modules.Navigation;component/Styles/CardStyles.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/TheFund.AtidsXe.Modules.Navigation;component/Styles/RadTreeViewItemStyles.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/TheFund.AtidsXe.Modules.Navigation;component/Styles/OutlookBarItemStyles.xaml" />
+
+        <ResourceDictionary Source="pack://application:,,,/TheFund.AtidsXe.Modules.Navigation;component/DataTemplates/ChainOfTitlesDataTemplates.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/TheFund.AtidsXe.Modules.Navigation;component/DataTemplates/PropertySearchDataTemplates.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/TheFund.AtidsXe.Modules.Navigation;component/DataTemplates/PolicySearchDataTemplates.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/TheFund.AtidsXe.Modules.Navigation;component/DataTemplates/NameSearchDataTemplates.xaml" />
+
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ProgressBar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Card.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.CheckBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Flipper.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Popupbox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ComboBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Slider.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ToggleButton.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    <templateSelectors:NavigationTemplateSelector
+        x:Key="NavigationTemplateSelector"
+        ChainOfTitleTemplate="{StaticResource ResourceKey=ChainOfTitleTemplate}"
+        ChainOfTitlesGroupTemplate="{StaticResource ResourceKey=ChainOfTitlesTemplate}"
+        NameSearchGroupTemplate="{StaticResource ResourceKey=NameSearchGroupTemplate}"
+        PolicySearchGroupTemplate="{StaticResource ResourceKey=PolicySearchGroupTemplate}"
+        PolicySearchLegalTemplate="{StaticResource ResourceKey=PolicySearchLegalTemplate}"
+        PropertySearchGroupTemplate="{StaticResource ResourceKey=PropertySearchGroupTemplate}"
+        PropertySearchLegalTemplate="{StaticResource ResourceKey=PropertySearchLegalTemplate}"
+        PropertySearchTemplate="{StaticResource ResourceKey=PropertySearchTemplate}" />
+    <DataTemplate x:Key="OutlookBarItemTemplate" DataType="outlookBar:OutlookBarItemViewModel">
+        <DockPanel
+            x:Name="outlookBarItemDockPanel"
+            Height="50"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch">
+            <Grid
+                Margin="0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Border
+                    Grid.Column="0"
+                    Height="48"
+                    Margin="0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Stretch"
+                    Background="#FF0099BC"
+                    BorderBrush="#FF0099BC"
+                    BorderThickness="2">
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Setter Property="Visibility" Value="Hidden" />
+                            <Setter Property="Opacity" Value="0.1" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type telerik:RadOutlookBarItem}}, Path=IsMouseOver}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                    <Setter Property="Opacity" Value="0.4" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type telerik:RadOutlookBarItem}}, Path=IsSelected}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                    <Setter Property="Opacity" Value="0.8" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                </Border>
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Grid.ColumnSpan="1"
+                    Margin="5,0,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    FontSize="12"
+                    Opacity="0.8">
+                    <Run FontWeight="SemiBold" Text="Reference: " />
+                    <Run Text="{Binding Path=Header, Mode=OneWay}" />
+                </TextBlock>
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Width="20"
+                    Height="20"
+                    Margin="0,0,2,0"
+                    Padding="0"
+                    VerticalAlignment="Top"
+                    materialDesign:RippleAssist.ClipToBounds="False"
+                    materialDesign:RippleAssist.Feedback="#CC000000"
+                    materialDesign:RippleAssist.IsCentered="True"
+                    materialDesign:RippleAssist.IsDisabled="False"
+                    materialDesign:RippleAssist.RippleOnTop="True"
+                    materialDesign:RippleAssist.RippleSizeMultiplier="0.8"
+                    telerik:RadToolTipService.Placement="Top"
+                    telerik:RadToolTipService.ShowDuration="800"
+                    telerik:RadToolTipService.ToolTipContent="Close"
+                    Command="{Binding Path=CloseFileReferenceCommand}"
+                    CommandParameter="{Binding}">
+                    <materialDesign:PackIcon
+                        Width="20"
+                        Height="20"
+                        Background="Transparent"
+                        Cursor="Hand"
+                        Foreground="Black"
+                        Kind="AccountCircleOutline"
+                        Opacity="0.8" />
+                    <Button.Style>
+                        <Style BasedOn="{StaticResource ResourceKey=MaterialDesignToolButton}" TargetType="Button">
+                            <Setter Property="Visibility" Value="Hidden" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type telerik:RadOutlookBarItem}}, Path=IsMouseOver}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="3"
+                    Width="20"
+                    Height="20"
+                    Margin="0,0,4,0"
+                    Padding="0"
+                    VerticalAlignment="Top"
+                    materialDesign:RippleAssist.ClipToBounds="False"
+                    materialDesign:RippleAssist.Feedback="#CC000000"
+                    materialDesign:RippleAssist.IsCentered="True"
+                    materialDesign:RippleAssist.IsDisabled="False"
+                    materialDesign:RippleAssist.RippleOnTop="True"
+                    materialDesign:RippleAssist.RippleSizeMultiplier="0.8"
+                    telerik:RadToolTipService.Placement="Top"
+                    telerik:RadToolTipService.ShowDuration="800"
+                    telerik:RadToolTipService.ToolTipContent="Close"
+                    Command="{Binding Path=CloseFileReferenceCommand}"
+                    CommandParameter="{Binding}">
+                    <materialDesign:PackIcon
+                        Width="20"
+                        Height="20"
+                        Background="Transparent"
+                        Cursor="Hand"
+                        Foreground="Black"
+                        Kind="CloseBoxOutline"
+                        Opacity="0.8" />
+                    <Button.Style>
+                        <Style BasedOn="{StaticResource ResourceKey=MaterialDesignToolButton}" TargetType="Button">
+                            <Setter Property="Visibility" Value="Hidden" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type telerik:RadOutlookBarItem}}, Path=IsMouseOver}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </Grid>
+        </DockPanel>
+    </DataTemplate>
+    <DataTemplate x:Key="OutlookBarItemMinimizedTemplate" DataType="outlookBar:OutlookBarItemViewModel">
+        <TextBlock VerticalAlignment="Center" Text="{Binding Path=Header, Mode=OneWay}" />
+    </DataTemplate>
+    <DataTemplate x:Key="OutlookBarItemDropDownTemplate" DataType="outlookBar:OutlookBarItemViewModel">
+        <TextBlock Text="{Binding Path=Header, Mode=OneWay}" />
+    </DataTemplate>
+    <DataTemplate x:Key="OutlookBarTitleTemplate" DataType="outlookBar:OutlookBarItemViewModel">
+        <Grid Width="380" Height="44.5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock
+                Grid.Row="0"
+                Grid.Column="0"
+                VerticalAlignment="Center">
+                <Run Foreground="Black" Text="Reference: " /><Run Text="{Binding Path=Header, Mode=OneWay}" />
+            </TextBlock>
+        </Grid>
+    </DataTemplate>
+    <DataTemplate x:Key="OutlookBarMinimizedBtnTemplate" DataType="outlookBar:OutlookBarItemViewModel">
+        <TextBlock Text="{Binding Path=Header, Mode=OneWay}" />
+    </DataTemplate>
+    <DataTemplate x:Key="OutlookBarContentTemplate" DataType="outlookBar:OutlookBarItemViewModel">
+        <telerik:RadTreeView
+            x:Name="NavigationTreeView"
+            Padding="5,5,5,10"
+            VerticalAlignment="Stretch"
+            telerik:AnimationManager.IsAnimationEnabled="False"
+            IsDragDropEnabled="True"
+            IsDragPreviewEnabled="False"
+            IsDragTooltipEnabled="False"
+            IsEditable="False"
+            IsExpandOnSingleClickEnabled="False"
+            IsLineEnabled="False"
+            IsRootLinesEnabled="False"
+            IsSingleExpandPath="False"
+            IsVirtualizing="True"
+            ItemContainerStyle="{StaticResource ResourceKey=NavigationTreeViewItemStyle}"
+            ItemTemplateSelector="{StaticResource ResourceKey=NavigationTemplateSelector}"
+            ItemsIndent="8"
+            ItemsSource="{Binding Path=NavigationGroupViewModels}"
+            ScrollViewer.VerticalScrollBarVisibility="Visible"
+            SelectionMode="Single">
+            <telerik:EventToCommandBehavior.EventBindings>
+                <telerik:EventBinding
+                    Command="{Binding Path=SelectionChangedCommand}"
+                    CommandParameter="{Binding ElementName=NavigationTreeView, Path=SelectedItem}"
+                    EventName="SelectionChanged" />
+                <telerik:EventBinding
+                    Command="{Binding Path=PreviewSelectionChangedCommand}"
+                    CommandParameter="{Binding ElementName=NavigationTreeView, Path=SelectedItem}"
+                    EventName="PreviewSelectionChanged" />
+            </telerik:EventToCommandBehavior.EventBindings>
+        </telerik:RadTreeView>
+    </DataTemplate>
+</ResourceDictionary>

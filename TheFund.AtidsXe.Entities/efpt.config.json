@@ -1,0 +1,387 @@
+﻿{
+  "ContextClassName": "ATIDSXEContext",
+  "DefaultDacpacSchema": null,
+  "IdReplace": false,
+  "IncludeConnectionString": false,
+  "OutputPath": "Models",
+  "ProjectRootNamespace": "TheFund.AtidsXe.Entities",
+  "SelectedToBeGenerated": 0,
+  "Tables": [
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.ACREAGE_GOVT_LOT_LEGAL"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.ACREAGE_SECTION_LEGAL"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.BOOK_PAGE_REFERENCE"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.BRANCH_LOCATION"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.BREAKDOWN_CODE_TYPE"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.CASE_NUMBER_REFERENCE"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.CERTIFICATION_RANGE"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.CHAIN_OF_TITLE"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.CHAIN_OF_TITLE_CATEGORY"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.CHAIN_OF_TITLE_ITEM"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.CHAIN_OF_TITLE_NOTES"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.CHAIN_OF_TITLE_SEARCH"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.DELIVERY_ORDER_INFO"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.EXAMINATION_STATUS_TYPE"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.FILE_REFERENCE"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.FILE_REFERENCE_NOTES"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.FILE_STATUS"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.GEOGRAPHIC_LOCALE"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.GEOGRAPHIC_LOCALE_TYPE"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.GOVERNMENT_LOT"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.GOVERNMENT_LOT_LEGAL"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.LEGAL_ENTITY_NAME"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.LEGAL_ENTITY_NAME_TYPE"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.MIN_NUMBER"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.MORTGAGE_TITLE_EVENT"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.NAME_REASON_CODE"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.NAME_SEARCH_LIST_ITEM "
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.NAME_SEARCH_LIST_REASON_CODE"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.NAME_SEARCH_PARAMETERS"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.NAME_SEARCH_STATUS_CODE"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.OFFICIAL_RECORD_DOCUMENT"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.OR_DOCUMENT_INFORMATION"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.OWNER_BUYER_RELATIONSHIP"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.PARTY"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.PARTY_LEGAL_ENTITY_NAME"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.PARTY_ROLE_TYPE"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.PERSONAL_LEGAL_ENTITY_NAME"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.PLAT_PROPERTIES"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.PLAT_REFERENCE"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.PLATTED_LEGAL"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.POLICY"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.POLICY_GOVT_LOT_LEGAL_MQL"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.POLICY_INSURED_DOCUMENT"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.POLICY_NOTES"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.POLICY_ORDER"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.POLICY_ORDER_TRACKING"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.POLICY_PLATTED_LEGAL_MQL"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.POLICY_RESTRICTION_TYPE"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.POLICY_SEARCH"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.POLICY_SECTION_LEGAL_MQL"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.POLICY_TITLE_STATUS_REPORT"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.POLICY_WORKSHEET_ITEM"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.PROPERTY_ADDRESS"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.RANGE_DIRECTION_TYPE"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.RELATED_CASE_NUMBER"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.RELATED_OR_DOCUMENT"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.RELATED_TAX_FOLIO"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.SEARCH"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.SEARCH_NOTES"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.SEARCH_STATUS"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.SEARCH_TYPE"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.SEARCH_WARNING"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.SEARCH_WARNING_HELP"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.SEARCH_WARNING_TYPE"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.SECTION_BREAKDOWN_CODE"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.SECTION_LEGAL"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.SUBDIVISION_LEVELS"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.SUBDIVISION_PLATTED_LEGAL"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.TAX_FOLIO_REFERENCE"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.TITLE_EVENT"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.TITLE_EVENT_DOCUMENT"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.TITLE_EVENT_GOVT_LOT_LEGAL_MQL"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.TITLE_EVENT_LEGAL_ENTITY_MQL"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.TITLE_EVENT_NOTES"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.TITLE_EVENT_ORDER"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.TITLE_EVENT_ORDER_TRACKING"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.TITLE_EVENT_PARTY"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.TITLE_EVENT_PLATTED_LEGAL_MQL"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.TITLE_EVENT_SEARCH"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.TITLE_EVENT_SECTION_LEGAL_MQL"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.TITLE_EVENT_STATUS_ASSIGNOR"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.TITLE_EVENT_TYPE"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.TITLE_EVENT_TYPE_CATEGORY"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.TITLE_SEARCH_ORIGINATION"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.TOWNSHIP_DIRECTION_TYPE"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.TYPE_OF_INSTRUMENT"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.UNPLATTED_REFERENCE"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.USER"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.USER_PROFILE"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.USER_PROFILE_FILE_REFERENCE"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.WORKSHEET"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.WORKSHEET_ITEM"
+    },
+    {
+      "HasPrimaryKey": true,
+      "Name": "dbo.YEAR_NUMBER_REFERENCE"
+    }
+  ],
+  "UseDatabaseNames": false,
+  "UseFluentApiOnly": false,
+  "UseHandleBars": false,
+  "UseInflector": false
+}

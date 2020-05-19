@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+	
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+							<xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+							<xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="resmimetype">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="version">
+		<value>1.3</value>
+	</resheader>
+	<resheader name="reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+  <data name="Queries_for_the_Title_Event_table" xml:space="preserve">
+    <value>Queries for the Title Event table</value>
+  </data>
+  <data name="Name_search_list_items_for_this_title_event" xml:space="preserve">
+    <value>Name search list items for this title event</value>
+  </data>
+  <data name="Title_event_government_lot_legal_mql_types_for_this_title_event" xml:space="preserve">
+    <value>Title event government lot legal mql types for this title event</value>
+  </data>
+  <data name="Title_event_government_legal_entity_mql_types_for_this_title_event" xml:space="preserve">
+    <value>Title event government legal entity mql types for this title event</value>
+  </data>
+  <data name="Title_event_note_types_for_this_title_event" xml:space="preserve">
+    <value>Title event note types for this title event</value>
+  </data>
+  <data name="Title_event_order_tracking_types_for_this_title_event" xml:space="preserve">
+    <value>Title event order tracking types for this title event</value>
+  </data>
+  <data name="Title_event_party_types_for_this_title_event" xml:space="preserve">
+    <value>Title event party types for this title event</value>
+  </data>
+  <data name="Title_event_platted_legal_mql_types_for_this_title_event" xml:space="preserve">
+    <value>Title event platted legal mql types for this title event</value>
+  </data>
+  <data name="Title_event_search_types_for_this_title_event" xml:space="preserve">
+    <value>Title event search types for this title event</value>
+  </data>
+  <data name="Title_event_section_legal_mql_types_for_this_title_event" xml:space="preserve">
+    <value>Title event section legal mql types for this title event</value>
+  </data>
+  <data name="Title_search_origination_types_for_this_title_event" xml:space="preserve">
+    <value>Title search origination types for this title event</value>
+  </data>
+  <data name="Worksheet_item_types_for_this_title_event" xml:space="preserve">
+    <value>Worksheet item types for this title event</value>
+  </data>
+  <data name="Chain_of_title_items_for_this_title_event" xml:space="preserve">
+    <value>Chain of title items for this title event</value>
+  </data>
+  <data name="The_title_event_associated_with_this_chain_of_title_item" xml:space="preserve">
+    <value>The title event associated with this chain of title item</value>
+  </data>
+  <data name="The_chain_of_title_associated_with_this_chain_of_title_item" xml:space="preserve">
+    <value>The chain of title associated with this chain of title item</value>
+  </data>
+  <data name="The_chain_of_title_category_associated_with_this_chain_of_title_item" xml:space="preserve">
+    <value>The chain of title category associated with this chain of title item</value>
+  </data>
+  <data name="The_starting_title_event_associated_with_this_chain_of_title_item" xml:space="preserve">
+    <value>The starting title event associated with this chain of title item</value>
+  </data>
+  <data name="The_user_id_of_the_user_who_modified_this_chain_of_title_item" xml:space="preserve">
+    <value>The user id of the user who modified this chain of title item</value>
+  </data>
+  <data name="Certification_range_types_from_this_official_record_document" xml:space="preserve">
+    <value>Certification range types from this official record document</value>
+  </data>
+  <data name="Certification_range_types_to_this_official_record_document" xml:space="preserve">
+    <value>Certification range types to this official record document</value>
+  </data>
+  <data name="Mortgage_title_event_for_this_title_event" xml:space="preserve">
+    <value>Mortgage title event for this title event</value>
+  </data>
+  <data name="Title_event_type_for_this_title_event" xml:space="preserve">
+    <value>Title event type for this title event</value>
+  </data>
+  <data name="Official_record_status_for_this_title_event" xml:space="preserve">
+    <value>Official record status for this title event</value>
+  </data>
+  <data name="Original_examination_status_type_for_this_title_event" xml:space="preserve">
+    <value>Original examination status type for this title event</value>
+  </data>
+  <data name="Current_examination_status_type_for_this_title_event" xml:space="preserve">
+    <value>Current examination status type for this title event</value>
+  </data>
+  <data name="The_tag_associated_with_this_title_event" xml:space="preserve">
+    <value>The tag associated with this title event</value>
+  </data>
+  <data name="Additional_information_about_this_title_event" xml:space="preserve">
+    <value>Additional information about this title event</value>
+  </data>
+  <data name="Chain_of_titles_associated_with_this_file_reference" xml:space="preserve">
+    <value>Chain of titles associated with this file reference</value>
+  </data>
+  <data name="Searches_associated_with_this_file_reference" xml:space="preserve">
+    <value>Searches associated with this file reference</value>
+  </data>
+  <data name="File_reference_notes_associated_with_this_file_reference" xml:space="preserve">
+    <value>File reference notes associated with this file reference</value>
+  </data>
+  <data name="Worksheet_for_this_file_reference" xml:space="preserve">
+    <value>Worksheet for this file reference</value>
+  </data>
+  <data name="Title_search_origination_for_this_file_reference" xml:space="preserve">
+    <value>Title search origination for this file reference</value>
+  </data>
+  <data name="File_status_for_this_file_reference" xml:space="preserve">
+    <value>File status for this file reference</value>
+  </data>
+  <data name="Geographic_locale_for_this_file_reference" xml:space="preserve">
+    <value>Geographic locale for this file reference</value>
+  </data>
+  <data name="Branch_location_for_this_file_reference" xml:space="preserve">
+    <value>Branch location for this file reference</value>
+  </data>
+  <data name="File_reference_query" xml:space="preserve">
+    <value>File reference query</value>
+  </data>
+  <data name="The_file_reference_Id" xml:space="preserve">
+    <value>The file reference Id</value>
+  </data>
+  <data name="Is_this_a_temporary_file" xml:space="preserve">
+    <value>Is this a temporary file</value>
+  </data>
+  <data name="File_reference_Id" xml:space="preserve">
+    <value>File reference Id</value>
+  </data>
+  <data name="Chain_of_title_items_associated_with_chain_of_title_category" xml:space="preserve">
+    <value>Chain of title items associated with chain of title category</value>
+  </data>
+  <data name="Title_event_searches_associated_with_this_search_Id" xml:space="preserve">
+    <value>Title event searches associated with this search Id</value>
+  </data>
+  <data name="Acreage_Government_lot_legals_associated_with_this_search_Id" xml:space="preserve">
+    <value>Acreage Government lot legals associated with this search Id</value>
+  </data>
+  <data name="InitializePrimitiveTypes_Is_this_search_hidden" xml:space="preserve">
+    <value>Is this search hidden</value>
+  </data>
+  <data name="InitializePrimitiveTypes_Includes_mortgagee_short_form" xml:space="preserve">
+    <value>Includes mortgagee short form</value>
+  </data>
+  <data name="Lrs_search" xml:space="preserve">
+    <value>Lrs search</value>
+  </data>
+  <data name="Search_associated_with_this_acreage_government_lot_legal" xml:space="preserve">
+    <value>Search associated with this acreage government lot legal</value>
+  </data>
+  <data name="Government_lot_legal_associated_with_this_acreage_government_lot_legal" xml:space="preserve">
+    <value>Government lot legal associated with this acreage government lot legal</value>
+  </data>
+  <data name="Gets_a_single_title_event_record_by_id" xml:space="preserve">
+    <value>Gets a single title event record by id</value>
+  </data>
+  <data name="Chain_of_title_searches" xml:space="preserve">
+    <value>Chain of title searches</value>
+  </data>
+  <data name="Chain_of_title_notes" xml:space="preserve">
+    <value>Chain of title notes</value>
+  </data>
+  <data name="File_reference_associated_with_this_chain_of_title" xml:space="preserve">
+    <value>File reference associated with this chain of title</value>
+  </data>
+</root>

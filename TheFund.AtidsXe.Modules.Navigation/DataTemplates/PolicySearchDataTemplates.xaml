@@ -1,0 +1,290 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf"
+    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    xmlns:viewModels="clr-namespace:TheFund.AtidsXe.Modules.Navigation.ViewModels.Policies">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/TheFund.AtidsXe.Modules.Navigation;component/Styles/ProgressBarStyles.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/TheFund.AtidsXe.Modules.Navigation;component/Styles/ButtonStyles.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/TheFund.AtidsXe.Modules.Navigation;component/Styles/CardStyles.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ProgressBar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Card.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.CheckBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Popupbox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ComboBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ToggleButton.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+    <converters:BooleanToVisibilityConverter x:Key="BoolToVisConverter" />
+    <converters:BooleanToVisibilityConverter
+        x:Key="InverseBoolToVisConverter"
+        FalseValue="Visible"
+        TrueValue="Collapsed" />
+    <telerik:Windows8Theme x:Key="Windows8Theme" />
+    <DataTemplate x:Key="PolicySearchLegalTemplate" DataType="{x:Type viewModels:PolicySearchLegalTreeViewModel}">
+        <materialDesign:Card
+            x:Name="PolicySearchLegalCard"
+            Width="280"
+            Height="70"
+            Margin="0"
+            Padding="0,0,5,0"
+            HorizontalAlignment="Left"
+            Cursor="Hand"
+            Style="{StaticResource ResourceKey=cardHoverShadowStyle}">
+            <Grid
+                Margin="0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="0.20*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Border
+                    Grid.Column="0"
+                    Margin="-1,-1,0,-1"
+                    HorizontalAlignment="Left"
+                    Background="Blue"
+                    BorderBrush="Blue"
+                    BorderThickness="3">
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Setter Property="Visibility" Value="Hidden" />
+                            <Setter Property="Opacity" Value="0.1" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=PolicySearchLegalCard, Path=IsMouseOver}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                    <Setter Property="Opacity" Value="0.2" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type telerik:RadTreeViewItem}}, Path=IsSelected}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                    <Setter Property="Opacity" Value="0.4" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                </Border>
+                <!--  Home Icon  -->
+                <Button
+                    Grid.Column="1"
+                    Width="23"
+                    Height="23"
+                    Margin="0"
+                    Padding="0"
+                    materialDesign:ButtonProgressAssist.IndicatorBackground="Transparent"
+                    materialDesign:ButtonProgressAssist.IndicatorForeground="Black"
+                    materialDesign:ButtonProgressAssist.IsIndeterminate="True"
+                    materialDesign:ButtonProgressAssist.IsIndicatorVisible="{Binding Path=IsBusy, Mode=OneWay}"
+                    materialDesign:ButtonProgressAssist.Opacity="0.6"
+                    materialDesign:ButtonProgressAssist.Value="-1"
+                    Background="#00000000"
+                    BorderBrush="#00000000"
+                    BorderThickness="0"
+                    FocusVisualStyle="{x:Null}"
+                    Focusable="False"
+                    Foreground="{x:Null}"
+                    Style="{StaticResource ResourceKey=MaterialDesignFloatingActionMiniButton1}">
+                    <Button.Content>
+                        <materialDesign:PackIcon
+                            Width="20"
+                            Height="20"
+                            Margin="0,-2,0,0"
+                            Padding="0"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Background="Transparent"
+                            Cursor="Arrow"
+                            Foreground="Black"
+                            Kind="HomeOutline"
+                            Opacity="1" />
+                    </Button.Content>
+                </Button>
+                <!--  More Options button  -->
+            </Grid>
+            <telerik:EventToCommandBehavior.EventBindings>
+                <telerik:EventBinding Command="{Binding Path=SelectPolicySearchLegalCommand}" EventName="MouseLeftButtonDown" />
+            </telerik:EventToCommandBehavior.EventBindings>
+        </materialDesign:Card>
+    </DataTemplate>
+    <HierarchicalDataTemplate
+        x:Key="PolicySearchGroupTemplate"
+        DataType="{x:Type viewModels:PolicySearchGroupTreeViewModel}"
+        ItemTemplate="{StaticResource ResourceKey=PolicySearchLegalTemplate}"
+        ItemTemplateSelector="{x:Null}"
+        ItemsSource="{Binding Path=PolicySearchLegalViewModels}">
+        <materialDesign:Card
+            x:Name="policySearchGroupCard"
+            Width="250"
+            Height="38"
+            Margin="0"
+            Padding="0,0,4,0"
+            HorizontalAlignment="Left"
+            Cursor="Hand"
+            Style="{StaticResource ResourceKey=cardHoverShadowStyle}">
+            <telerik:EventToCommandBehavior.EventBindings>
+                <telerik:EventBinding Command="{Binding Path=SelectPolicySearchGroupCommand}" EventName="MouseLeftButtonDown" />
+            </telerik:EventToCommandBehavior.EventBindings>
+            <Grid
+                Margin="0"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="0.16*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="18" />
+                    <ColumnDefinition Width="34" />
+                </Grid.ColumnDefinitions>
+                <Border
+                    Grid.Column="0"
+                    Margin="-1,-1,0,-1"
+                    VerticalAlignment="Stretch"
+                    Background="Blue"
+                    BorderBrush="Blue"
+                    BorderThickness="3"
+                    SnapsToDevicePixels="True">
+                    <Border.Style>
+                        <Style TargetType="Border">
+                            <Setter Property="Visibility" Value="Hidden" />
+                            <Setter Property="Opacity" Value="0.1" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=policySearchGroupCard, Path=IsMouseOver}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                    <Setter Property="Opacity" Value="0.2" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type telerik:RadTreeViewItem}}, Path=IsSelected}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                    <Setter Property="Opacity" Value="0.4" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Border.Style>
+                </Border>
+                <materialDesign:PackIcon
+                    Grid.Column="1"
+                    Width="20"
+                    Height="20"
+                    Margin="8,0,0,0"
+                    Padding="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Background="Transparent"
+                    Cursor="Arrow"
+                    Foreground="Black"
+                    Kind="FileDocumentBoxSearchOutline"
+                    Opacity="0.9" />
+                <StackPanel
+                    Grid.Column="2"
+                    VerticalAlignment="Center"
+                    Cursor="Hand"
+                    Orientation="Vertical">
+                    <TextBlock
+                        Margin="5,0,0,0"
+                        VerticalAlignment="Center"
+                        Opacity="0.9"
+                        Style="{DynamicResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                        Text="Policy Searches"
+                        TextTrimming="CharacterEllipsis" />
+                </StackPanel>
+                <materialDesign:PopupBox
+                    Grid.Column="4"
+                    Margin="8,0,0,0"
+                    Padding="0"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    materialDesign:RippleAssist.ClipToBounds="False"
+                    materialDesign:RippleAssist.Feedback="LightBlue"
+                    materialDesign:RippleAssist.IsCentered="True"
+                    materialDesign:RippleAssist.IsDisabled="False"
+                    materialDesign:RippleAssist.RippleOnTop="True"
+                    materialDesign:RippleAssist.RippleSizeMultiplier="0.7"
+                    PlacementMode="RightAndAlignTopEdges"
+                    PopupMode="Click"
+                    StaysOpen="False"
+                    UnfurlOrientation="Horizontal">
+                    <materialDesign:PopupBox.ToggleCheckedContent>
+                        <materialDesign:PackIcon
+                            Width="20"
+                            Height="20"
+                            Cursor="Hand"
+                            Foreground="Black"
+                            Kind="EllipsisVertical" />
+                    </materialDesign:PopupBox.ToggleCheckedContent>
+                    <materialDesign:PopupBox.ToggleContent>
+                        <materialDesign:PackIcon
+                            Width="20"
+                            Height="20"
+                            Cursor="Hand"
+                            Foreground="Black"
+                            Kind="EllipsisVertical" />
+                    </materialDesign:PopupBox.ToggleContent>
+                    <materialDesign:PopupBox.Style>
+                        <Style BasedOn="{StaticResource ResourceKey=MaterialDesignToolPopupBox}" TargetType="materialDesign:PopupBox">
+                            <Setter Property="Visibility" Value="Hidden" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=policySearchGroupCard, Path=IsMouseOver}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </materialDesign:PopupBox.Style>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.Resources>
+                            <Style TargetType="materialDesign:PackIcon">
+                                <Setter Property="Width" Value="18" />
+                                <Setter Property="Height" Value="18" />
+                                <Setter Property="Margin" Value="0" />
+                                <Setter Property="Padding" Value="0" />
+                                <Setter Property="Background" Value="Transparent" />
+                                <Setter Property="Foreground" Value="Black" />
+                                <Setter Property="Cursor" Value="Arrow" />
+                                <Setter Property="Opacity" Value="0.7" />
+                            </Style>
+                        </Grid.Resources>
+                        <!--  Edit search button  -->
+                        <Button
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Command="{Binding Path=EditSearchCommand}"
+                            Cursor="Hand">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <materialDesign:PackIcon Grid.Column="0" Kind="EditOutline" />
+                                <TextBlock
+                                    Grid.Column="1"
+                                    Margin="10,0,0,0"
+                                    VerticalAlignment="Center"
+                                    Style="{StaticResource ResourceKey=MaterialDesignCaptionTextBlock}"
+                                    Text="Edit Search" />
+                            </Grid>
+                        </Button>
+                    </Grid>
+                </materialDesign:PopupBox>
+            </Grid>
+        </materialDesign:Card>
+    </HierarchicalDataTemplate>
+</ResourceDictionary>

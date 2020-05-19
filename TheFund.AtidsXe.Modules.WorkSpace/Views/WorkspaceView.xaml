@@ -1,0 +1,242 @@
+﻿<UserControl
+    x:Class="TheFund.AtidsXe.Modules.WorkSpace.Views.WorkspaceView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:MaterialDesignThemes.Wpf.Converters;assembly=MaterialDesignThemes.Wpf"
+    xmlns:converters1="clr-namespace:TheFund.AtidsXe.Modules.Common.Converters;assembly=TheFund.AtidsXe.Modules.Common"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:local="clr-namespace:TheFund.AtidsXe.Modules.WorkSpace.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:reactiveui="http://reactiveui.net"
+    xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+    xmlns:viewModels="clr-namespace:TheFund.AtidsXe.Modules.WorkSpace.ViewModels"
+    Margin="1,0.5,1,1"
+    VerticalAlignment="Stretch"
+    mc:Ignorable="d">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Button.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Card.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.CheckBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Flipper.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Popupbox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ComboBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Slider.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBox.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ToggleButton.xaml" />
+                <ResourceDictionary Source="/Telerik.Windows.Controls;component/Themes/FontResources.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <converters:BooleanToVisibilityConverter x:Key="BoolToVisConverter" />
+            <converters1:BooleanToVisibileHiddenConverter x:Key="BooleanToVisibileHiddenConverter" />
+            <converters:BooleanToVisibilityConverter
+                x:Key="InverseBoolToVisConverter"
+                FalseValue="Visible"
+                TrueValue="Collapsed" />
+            <telerik:FluentTheme x:Key="Theme" />
+            <telerik:Windows8Theme x:Key="Windows8Theme" />
+            <Style TargetType="telerik:RadButton">
+                <Setter Property="telerik:StyleManager.Theme" Value="{StaticResource Theme}" />
+            </Style>
+            <Style TargetType="TextBlock">
+                <Setter Property="telerik:StyleManager.Theme" Value="{StaticResource Theme}" />
+            </Style>
+            <Style TargetType="telerik:Label">
+                <Setter Property="telerik:StyleManager.Theme" Value="{StaticResource Theme}" />
+            </Style>
+            <Style TargetType="telerik:RadWatermarkTextBox">
+                <Setter Property="telerik:StyleManager.Theme" Value="{StaticResource Theme}" />
+            </Style>
+            <Style TargetType="telerik:RadBusyIndicator">
+                <Setter Property="telerik:StyleManager.Theme" Value="{StaticResource Windows8Theme}" />
+            </Style>
+            <Style TargetType="telerik:RadGridView">
+                <Setter Property="telerik:StyleManager.Theme" Value="{StaticResource Theme}" />
+            </Style>
+            <Style TargetType="telerik:RadDataPager">
+                <Setter Property="telerik:StyleManager.Theme" Value="{StaticResource Theme}" />
+            </Style>
+            <Style TargetType="telerik:RadTabControl">
+                <Setter Property="telerik:StyleManager.Theme" Value="{StaticResource Theme}" />
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <ProgressBar
+            Grid.Row="0"
+            Grid.RowSpan="1"
+            Height="2"
+            Margin="0,0,0,0.5"
+            HorizontalAlignment="Stretch"
+            d:DataContext="{d:DesignInstance viewModels:WorkspaceViewModel}"
+            IsEnabled="{Binding Path=IsBusy}"
+            IsIndeterminate="True"
+            SmallChange="0.5"
+            Visibility="{Binding Path=IsBusy, FallbackValue='Hidden', Mode=OneWay, Converter={StaticResource ResourceKey=BooleanToVisibileHiddenConverter}}" />
+        <telerik:RadTabControl
+            x:Name="WorkspaceTabControl"
+            Grid.Row="1"
+            VerticalAlignment="Stretch"
+            d:DataContext="{d:DesignInstance viewModels:WorkspaceViewModel}"
+            BorderThickness="1"
+            DisplayMemberPath="Content"
+            DropDownDisplayMode="Visible"
+            ScrollMode="Viewport"
+            SelectedIndex="{Binding Path=SelectedIdex}">
+            <telerik:RadTabItem DropDownContent="Title Events" Header="Title Events">
+                <telerik:RadTabItem.Content>
+                    <Grid Margin="2" VerticalAlignment="Stretch">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <telerik:RadGridView
+                            x:Name="TitleEventsRadGridView"
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            Margin="0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            HorizontalContentAlignment="Stretch"
+                            AutoGenerateColumns="False"
+                            CanUserFreezeColumns="False"
+                            CanUserGroupColumns="False"
+                            CanUserResizeColumns="False"
+                            GroupRenderMode="Flat"
+                            IsReadOnly="True"
+                            IsSynchronizedWithCurrentItem="True"
+                            RowIndicatorVisibility="Visible"
+                            SelectionMode="Single"
+                            SelectionUnit="FullRow"
+                            ShowColumnSortIndexes="True"
+                            ShowGroupPanel="False">
+                            <telerik:RadGridView.Columns>
+                                <telerik:GridViewDataColumn Header="File Reference" />
+                                <telerik:GridViewDataColumn Header="Created Date" />
+                                <telerik:GridViewDataColumn DataMemberBinding="{Binding Path=WorkerId}" Header="User" />
+                                <telerik:GridViewDataColumn Header="Branch" />
+                            </telerik:RadGridView.Columns>
+                        </telerik:RadGridView>
+                        <telerik:RadDataPager
+                            x:Name="TitleEventsPager"
+                            Grid.Row="2"
+                            Margin="0,2,0,0"
+                            Background="White"
+                            HorizontalAlignment="Stretch"
+                            DisplayMode="FirstLastPreviousNextNumeric, Text"
+                            IsTotalItemCountFixed="True"
+                            PageSize="10"
+                            Source="{Binding Path=Items, ElementName=TitleEventsRadGridView}" />
+                    </Grid>
+                </telerik:RadTabItem.Content>
+            </telerik:RadTabItem>
+            <telerik:RadTabItem DropDownContent="Worksheet" Header="Worksheet">
+                <telerik:RadTabItem.Content>
+                    <Grid Margin="2" VerticalAlignment="Stretch">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <telerik:RadGridView
+                            x:Name="WorksheetGridView"
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            Margin="0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            HorizontalContentAlignment="Stretch"
+                            AutoGenerateColumns="False"
+                            CanUserFreezeColumns="False"
+                            CanUserGroupColumns="False"
+                            CanUserResizeColumns="False"
+                            GroupRenderMode="Flat"
+                            IsReadOnly="True"
+                            IsSynchronizedWithCurrentItem="True"
+                            RowIndicatorVisibility="Visible"
+                            SelectionMode="Single"
+                            SelectionUnit="FullRow"
+                            ShowColumnSortIndexes="True"
+                            ShowGroupPanel="False">
+                            <telerik:RadGridView.Columns>
+                                <telerik:GridViewDataColumn Header="File Reference" />
+                                <telerik:GridViewDataColumn Header="Created Date" />
+                                <telerik:GridViewDataColumn Header="User" />
+                                <telerik:GridViewDataColumn Header="Branch" />
+                            </telerik:RadGridView.Columns>
+                        </telerik:RadGridView>
+                        <telerik:RadDataPager
+                            x:Name="WorksheetEventsPager"
+                            Grid.Row="2"
+                            Margin="0,2,0,0"
+                            Background="White"
+                            HorizontalAlignment="Stretch"
+                            DisplayMode="FirstLastPreviousNextNumeric, Text"
+                            IsTotalItemCountFixed="True"
+                            PageSize="10"
+                            Source="{Binding Path=Items, ElementName=WorksheetGridView}" />
+                    </Grid>
+                </telerik:RadTabItem.Content>
+            </telerik:RadTabItem>
+            <telerik:RadTabItem DropDownContent="Chain of Titles" Header="Chain of Titles">
+                <telerik:RadTabItem.Content>
+                    <Grid Margin="2" VerticalAlignment="Stretch">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <telerik:RadGridView
+                            x:Name="chainOfTitlesRadGridView"
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            Margin="0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            HorizontalContentAlignment="Stretch"
+                            AutoGenerateColumns="False"
+                            CanUserFreezeColumns="False"
+                            CanUserGroupColumns="False"
+                            CanUserResizeColumns="False"
+                            GroupRenderMode="Flat"
+                            IsReadOnly="True"
+                            IsSynchronizedWithCurrentItem="True"
+                            RowIndicatorVisibility="Visible"
+                            SelectionMode="Single"
+                            SelectionUnit="FullRow"
+                            ShowColumnSortIndexes="True"
+                            ShowGroupPanel="False">
+                            <telerik:RadGridView.Columns>
+                                <telerik:GridViewDataColumn Header="File Reference" />
+                                <telerik:GridViewDataColumn Header="Created Date" />
+                                <telerik:GridViewDataColumn Header="User" />
+                                <telerik:GridViewDataColumn Header="Branch" />
+                            </telerik:RadGridView.Columns>
+                        </telerik:RadGridView>
+                        <telerik:RadDataPager
+                            x:Name="chainOfTitlesPager"
+                            Grid.Row="2"
+                            Margin="0,2,0,0"
+                            Background="White"
+                            HorizontalAlignment="Stretch"
+                            DisplayMode="FirstLastPreviousNextNumeric, Text"
+                            IsTotalItemCountFixed="True"
+                            PageSize="10"
+                            Source="{Binding Path=Items, ElementName=chainOfTitlesRadGridView}" />
+                    </Grid>
+                </telerik:RadTabItem.Content>
+            </telerik:RadTabItem>
+        </telerik:RadTabControl>
+    </Grid>
+</UserControl>
