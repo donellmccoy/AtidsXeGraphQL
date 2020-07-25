@@ -13,8 +13,7 @@ namespace TheFund.AtidsXe.Modules.Common.Extensions
         {
             return should
                 ? transforms.Aggregate(query,
-                    (current, transform) => transform.Invoke(current))
-                : query;
+                    (current, transform) => transform.Invoke(current)): query;
         }
 
         public static IEnumerable<T> If<T>(
