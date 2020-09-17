@@ -104,6 +104,26 @@ namespace TheFund.AtidsXe.Modules.Services.Search
             );
         }
 
+        public async Task<IFileReferenceResponse> GetFileReferenceAsync(Func<IFileReferenceRequest> action, CancellationToken token)
+        {
+            action.EnsureNotNull();
+
+            var request = action();
+
+            return FileReferenceResponseFactory.CreateFileReferenceResponse
+            (
+                FileReferenceFactory.Create
+                (
+                    await _cachingService.AddOrGetExistingAsync
+                    (
+                        request.FileReferenceId,
+                        request.CacheRegion,
+                        () => _graphQLService.GetFileReferenceAsync(request.FileReferenceId, token)
+                    )
+                )
+            );
+        }
+
         #endregion
-	}
+    }
 }
