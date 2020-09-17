@@ -44,7 +44,7 @@ namespace TheFund.AtidsXe.Modules.Services.Caching
 
         public void Remove(string key)
         {
-            key.EnsureNotNullOrWhitespace();
+            key.EnsureNotNullOrWhitespace(nameof(key));
 
             _cache.Remove(key);
         }
