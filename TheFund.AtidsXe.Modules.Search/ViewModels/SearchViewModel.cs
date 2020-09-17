@@ -173,7 +173,10 @@ namespace TheFund.AtidsXe.Modules.Search.ViewModels
             ShowStatusMessage($"Loading file reference: {model.FileReferenceName}. Please wait...");
             ShowBusyIndicator();
 
-            var response = await _searchService.GetFileReferenceAsync(FileReferenceRequestFactory.Create(model.FileReferenceId, token), token);
+            var response = await _searchService.GetFileReferenceAsync(() => 
+            { 
+                return new FileReferenceRequest(model.FileReferenceId); 
+            }, token);
 
             ShowStatusMessage(null);
             HideBusyIndicator();

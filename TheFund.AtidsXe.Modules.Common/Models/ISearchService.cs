@@ -15,6 +15,7 @@ namespace TheFund.AtidsXe.Modules.Common.Models
         IObservable<int> Count { get; }
 
         Task<IFileReferenceResponse> GetFileReferenceAsync([NotNull] IFileReferenceRequest request, CancellationToken token = default);
+        Task<IFileReferenceResponse> GetFileReferenceAsync(Func<IFileReferenceRequest> action, CancellationToken token);
         IObservable<IEnumerable<IFileReference>> SearchFileReferences(string searchTerm, CancellationToken token);
         Task<ImmutableList<IFileReference>> SearchFileReferencesAsync([NotNull] string searchTerm, CancellationToken token = default);
     }
