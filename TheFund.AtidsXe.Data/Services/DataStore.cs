@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JetBrains.Annotations;
+using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading;
@@ -8,7 +9,7 @@ namespace TheFund.AtidsXe.Data.Services
 {
     public abstract class DataStore
     {
-        public abstract Task<int> GetEntityCountAsync<TEntity>(Expression<Func<TEntity, bool>> predicate, CancellationToken token = default) where TEntity : class;
+        public abstract Task<int> GetEntityCountAsync<TEntity>([NotNull] Expression<Func<TEntity, bool>> predicate, CancellationToken token = default) where TEntity : class;
         
         public abstract Task<TEntity> DeleteEntity<TEntity>(Expression<Func<TEntity, bool>> predicate, CancellationToken token = default) where TEntity : class;
         

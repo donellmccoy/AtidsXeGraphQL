@@ -48,8 +48,7 @@ namespace TheFund.AtidsXe.Data.Services
         {
             await using (var context = _serviceProvider.GetService<ATIDSXEContext>())
             {
-                context.Set<TEntity>().Attach(entity);
-                context.Entry<TEntity>(entity);
+                context.Entry<TEntity>(entity).State = EntityState.Modified;
                 await context.SaveChangesAsync(token).ConfigureAwait(false);
             }
 
@@ -128,6 +127,7 @@ namespace TheFund.AtidsXe.Data.Services
             }
             return entities;
         }
+
 
         public Task<IEnumerable<TEntity>> GetBatchedEntitiesAsync<TKey, TEntity>(string loaderKey, TKey key, Expression<Func<TEntity, TKey>> keySelector) where TEntity : class
         {
